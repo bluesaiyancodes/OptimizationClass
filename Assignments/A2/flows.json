@@ -1,0 +1,150 @@
+[
+    {
+        "id": "53184abab11633e3",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6eb5dbe95a9f866b",
+        "type": "http request",
+        "z": "53184abab11633e3",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://data.ex.co.kr/openapi/trafficapi/trafficAll?key=3961505764&type=json",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 590,
+        "y": 280,
+        "wires": [
+            [
+                "3cd0b0dd6b4db5d4"
+            ]
+        ]
+    },
+    {
+        "id": "1fcd8e2f7858c45c",
+        "type": "inject",
+        "z": "53184abab11633e3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 350,
+        "y": 320,
+        "wires": [
+            [
+                "6eb5dbe95a9f866b"
+            ]
+        ]
+    },
+    {
+        "id": "b19f461583159632",
+        "type": "debug",
+        "z": "53184abab11633e3",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.count",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "3cd0b0dd6b4db5d4",
+        "type": "json",
+        "z": "53184abab11633e3",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 200,
+        "wires": [
+            [
+                "b19f461583159632",
+                "cf07aed73595e197",
+                "84da192491a46988",
+                "da9d2843592d2840"
+            ]
+        ]
+    },
+    {
+        "id": "cf07aed73595e197",
+        "type": "debug",
+        "z": "53184abab11633e3",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.trafficAll[1].trafficAmout",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "84da192491a46988",
+        "type": "debug",
+        "z": "53184abab11633e3",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.trafficAll[2].trafficAmout",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "da9d2843592d2840",
+        "type": "debug",
+        "z": "53184abab11633e3",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.trafficAll[3].trafficAmout",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 540,
+        "wires": []
+    }
+]

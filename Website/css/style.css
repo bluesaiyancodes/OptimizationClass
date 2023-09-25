@@ -53,6 +53,8 @@ a, a:hover {
   top: 100%;
   left: 0;
   z-index: 1;
+  display: flex;
+  justify-content: center;
 }
   
 .blur-bg {
@@ -89,3 +91,6 @@ a, a:hover {
   font-style: italic;  /* Optional: Makes the text italic */
 }
   
+.spacer{
+    height: 300px;
+}
