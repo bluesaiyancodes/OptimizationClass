@@ -1,8 +1,17 @@
 * {
     color: #f8f8f2;
     background-color: #282a36;
-    font-family: 'Roboto', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
+
+@font-face {
+  font-family: 'Spoqa Han Sans Neo';
+  src: url('media/fonts/SpoqaHanSansNeo-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 body {
     background-color: #282a36;
@@ -30,23 +39,23 @@ a, a:hover {
     position: relative;
   }
   
-  .image {
+.image {
     width: 100%;
     height: auto;
-  }
+}
   
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
+.overlay {
+  max-height: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+}
   
-  .blur-bg {
+.blur-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -54,9 +63,11 @@ a, a:hover {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     filter: blur(2px);
-  }
+    transition: background-color 0.3s ease;
+}
+
   
-  .text {
+.text {
     position: absolute;
     top: 0;
     left: 0;
@@ -65,15 +76,16 @@ a, a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
   
-  .text span {
+.text span {
     color: white;
     font-size: 24px;
-  }
+}
   
-  .image-container:hover .overlay {
-    opacity: 1;
-    pointer-events: auto;
-  }
+.hint_hover {
+  opacity: 0.6;  /* Makes the text look faded */
+  font-size: 0.8em;  /* Makes the text smaller */
+  font-style: italic;  /* Optional: Makes the text italic */
+}
   
